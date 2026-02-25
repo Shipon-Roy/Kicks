@@ -1,3 +1,4 @@
+import Categories from "@/components/Home/Categories";
 import Hero from "@/components/Home/Hero";
 import NewDrops from "@/components/Home/NewDrops";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <div>
       <Hero />
       <NewDrops />
+      <Categories />
     </div>
   );
 }
