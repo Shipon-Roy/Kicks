@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import Container from "./Container";
 import Link from "next/link";
 import { CgProfile } from "react-icons/cg";
@@ -9,10 +9,13 @@ export default function Navber() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-[#FAFAFA]">
+    <div className="  bg-[#E7E7E3] py-6">
       <Container>
-        <div className="grid grid-cols-3 items-center text-[#232321] py-4">
-          {/* Left: menu (desktop) + hamburger (mobile) */}
+        <div
+          className="grid grid-cols-3 items-center bg-[#FAFAFA] text-[#232321] py-4 px-10 rounded-lg 
+        "
+        >
+          {/* Left: menu */}
           <div className="flex items-center gap-4">
             <button
               aria-label="Toggle menu"
@@ -51,7 +54,7 @@ export default function Navber() {
           {/* Center: logo */}
           <div className="flex justify-center">
             <Link href="/">
-              <h1 className="text-lg font-semibold">Kicks</h1>
+              <h1 className="text-2xl text-[#232321] font-bold ">KICKS</h1>
             </Link>
           </div>
 
