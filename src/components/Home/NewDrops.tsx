@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Product {
   id: number;
@@ -51,8 +52,9 @@ export default function NewDrops() {
         {!loading && (
           <div className="grid  grid-cols-2 lg:grid-cols-4 gap-8">
             {products.slice(0, 4).map((product) => (
-              <div
+              <Link
                 key={product.id}
+                href={`/products/${product.id}`}
                 className="bg-white rounded-2xl p-2 shadow-sm hover:shadow-lg transition"
               >
                 <div className="relative bg-gray-100 rounded-xl h-64 overflow-hidden">
@@ -76,7 +78,7 @@ export default function NewDrops() {
                   VIEW PRODUCT –{" "}
                   <span className="text-[#FFA52F]">${product.price}</span>
                 </button>
-              </div>
+              </Link>
             ))}
           </div>
         )}
