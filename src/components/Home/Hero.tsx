@@ -43,7 +43,7 @@ export default function Hero() {
             <Link
               href="/shop"
               aria-label="Shop Nike Air Max"
-              className="inline-block bg-blue-600 hover:bg-blue-700 transition px-5 py-2 md:px-6 md:py-3 rounded-lg text-sm font-semibold"
+              className="inline-block bg-[#4A69E2] hover:bg-blue-700 transition px-5 py-2 md:px-6 md:py-3 rounded-lg text-sm font-semibold"
             >
               SHOP NOW
             </Link>
