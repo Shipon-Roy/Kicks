@@ -75,7 +75,7 @@ export default function Navber() {
             </Link>
             <Link
               href="/#"
-              className="inline-flex md:inline-flex justify-center items-center p-2 w-6 h-6 rounded-full bg-[#FFA52F] text-black text-xs font-bold"
+              className="inline-flex md:inline-flex justify-center items-center p-4 w-6 h-6 rounded-full bg-[#FFA52F] text-black text-xl font-bold"
             >
               0
             </Link>
@@ -84,7 +84,7 @@ export default function Navber() {
 
         {/* Mobile menu */}
         <div className={`${open ? "block" : "hidden"} md:hidden pb-4`}>
-          <ul className="flex flex-col gap-3 text-white">
+          <ul className="flex flex-col gap-3 bg-gray-300 p-4 rounded-2xl text-white ">
             <li>
               <Link href="/">New Drops🔥</Link>
             </li>

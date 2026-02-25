@@ -61,7 +61,7 @@ export default function CategoriesPage() {
             <div
               key={cat.id}
               className={`relative w-full h-120 overflow-hidden cursor-pointer group ${
-                index === 0 ? "rounded-tl-2xl " : ""
+                index === 0 ? "rounded-tl-4xl " : ""
               }`}
             >
               <div className="absolute inset-0 grid grid-cols-2 justify-end ">
