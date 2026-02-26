@@ -4,9 +4,11 @@ import Container from "./Container";
 import Link from "next/link";
 import { CgProfile } from "react-icons/cg";
 import { FiSearch } from "react-icons/fi";
+import { useCart } from "@/context/CartContext";
 
 export default function Navber() {
   const [open, setOpen] = useState(false);
+  const { cart } = useCart();
 
   return (
     <div className="  bg-[#E7E7E3] py-6">
@@ -74,10 +76,10 @@ export default function Navber() {
               <CgProfile className="w-6 h-6" />
             </Link>
             <Link
-              href="/#"
-              className="inline-flex md:inline-flex justify-center items-center p-4 w-6 h-6 rounded-full bg-[#FFA52F] text-black text-xl font-bold"
+              href="/order-summary"
+              className="inline-flex md:inline-flex justify-center items-center p-4 w-6 h-6 rounded-full bg-[#FFA52F] text-black text-xl font-bold hover:bg-orange-500 transition"
             >
-              0
+              {cart.length}
             </Link>
           </div>
         </div>

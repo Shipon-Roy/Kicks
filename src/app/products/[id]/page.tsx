@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { FaHeart } from "react-icons/fa";
 import Link from "next/link";
+import { useCart } from "@/context/CartContext";
 
 interface Product {
   id: number;
@@ -16,9 +17,13 @@ interface Product {
 
 export default function ProductDetailsPage() {
   const params = useParams();
+  const router = useRouter();
+  const { addToCart } = useCart();
   const [product, setProduct] = useState<Product | null>(null);
   const [related, setRelated] = useState<Product[]>([]);
   const [selectedSize, setSelectedSize] = useState<number | null>(38);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
 
   const sizes = [38, 39, 40, 41, 42, 43, 44, 45, 46, 47];
 
@@ -52,6 +57,46 @@ export default function ProductDetailsPage() {
 
     fetchProduct();
   }, [params?.id]);
+
+  const handleAddToCart = () => {
+    if (!selectedSize || !product) {
+      setToastMessage("Please select a size");
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 3000);
+      return;
+    }
+
+    addToCart({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      size: selectedSize,
+      image: product.images[0] || "",
+    });
+
+    setToastMessage(`Added to cart! Size ${selectedSize}`);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
+
+  const handleBuyNow = () => {
+    if (!selectedSize) {
+      setToastMessage("Please select a size");
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 3000);
+      return;
+    }
+
+    addToCart({
+      id: product?.id || 0,
+      title: product?.title || "",
+      price: product?.price || 0,
+      size: selectedSize,
+      image: product?.images[0] || "",
+    });
+
+    router.push("/order-summary");
+  };
 
   if (!product) {
     return (
@@ -123,15 +168,21 @@ export default function ProductDetailsPage() {
 
             <div className="mt-8 space-y-4">
               <div className="flex justify-between items-center gap-3">
-                <button className="w-full bg-[#232321] text-white py-3 rounded-xl font-semibold hover:bg-neutral-800 transition">
+                <button
+                  onClick={handleAddToCart}
+                  className="w-full bg-[#232321] text-white py-3 rounded-xl font-semibold hover:bg-neutral-800 transition"
+                >
                   ADD TO CART
                 </button>
-                <button className="w-12 h-12 bg-[#232321] rounded-xl flex items-center justify-center shadow">
-                  <FaHeart />
+                <button className="w-12 h-12 bg-[#232321] rounded-xl flex items-center justify-center shadow hover:bg-neutral-800 transition">
+                  <FaHeart className="text-white" />
                 </button>
               </div>
 
-              <button className="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition">
+              <button
+                onClick={handleBuyNow}
+                className="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition"
+              >
                 BUY IT NOW
               </button>
             </div>
@@ -182,6 +233,13 @@ export default function ProductDetailsPage() {
           </div>
         </div>
       </div>
+
+      {/* Toast Notification */}
+      {showToast && (
+        <div className="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg animate-pulse">
+          {toastMessage}
+        </div>
+      )}
     </div>
   );
 }
