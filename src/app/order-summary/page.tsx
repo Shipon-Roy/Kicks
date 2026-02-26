@@ -3,9 +3,16 @@
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { FaHeart, FaTrash } from "react-icons/fa";
+
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  images: string[];
+}
 
 export default function OrderSummaryPage() {
   const { cart, removeFromCart, updateQuantity, getTotalPrice, clearCart } =
@@ -13,6 +20,22 @@ export default function OrderSummaryPage() {
   const router = useRouter();
   const [showSuccess, setShowSuccess] = useState(false);
   const [promoCode, setPromoCode] = useState("");
+
+  const [related, setRelated] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const fetchRelated = async () => {
+      try {
+        const res = await fetch("https://api.escuelajs.co/api/v1/products");
+        if (!res.ok) throw new Error("Failed to load related");
+        const data: Product[] = await res.json();
+        setRelated(data.slice(0, 4));
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    fetchRelated();
+  }, []);
 
   const subtotal = getTotalPrice();
   const shipping = cart.length > 0 ? 6.99 : 0;
@@ -100,7 +123,7 @@ export default function OrderSummaryPage() {
                 {cart.map((item) => (
                   <div
                     key={`${item.id}-${item.size}`}
-                    className="flex gap-6 pb-6 border-b border-gray-200"
+                    className="flex flex-col sm:flex-row gap-6 pb-6 border-b border-gray-200"
                   >
                     <div className="relative w-40 h-40 bg-gray-100 rounded-lg overflow-hidden shrink-0">
                       <Image
@@ -262,6 +285,47 @@ export default function OrderSummaryPage() {
                 )}
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ===== Related Products ===== */}
+      <div className="max-w-7xl mx-auto py-10 px-4">
+        <div className="mt-20">
+          <h2 className="text-2xl text-[#232321] md:text-3xl font-bold mb-8">
+            You may also like
+          </h2>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {related.slice(0, 4).map((product) => (
+              <Link
+                key={product.id}
+                href={`/products/${product.id}`}
+                className="bg-white rounded-2xl p-2 shadow-sm hover:shadow-lg transition"
+              >
+                <div className="relative bg-gray-100 rounded-xl h-40 md:min-h-64 overflow-hidden">
+                  <span className="absolute top-0 left-0 bg-blue-600 text-white text-xs px-3 py-1 rounded-tl-3xl rounded-br-3xl z-10">
+                    New
+                  </span>
+
+                  <Image
+                    src={product.images?.[0]}
+                    alt={product.title}
+                    fill
+                    className="object-contain p-4 rounded-2xl"
+                  />
+                </div>
+
+                <h3 className="mt-6 text-[#232321] font-bold text-sm md:text-base uppercase leading-snug">
+                  {product.title}
+                </h3>
+
+                <button className="mt-4 w-full bg-[#232321] text-white py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition">
+                  VIEW PRODUCT –{" "}
+                  <span className="text-[#FFA52F]">${product.price}</span>
+                </button>
+              </Link>
+            ))}
           </div>
         </div>
       </div>

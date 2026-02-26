@@ -200,14 +200,14 @@ export default function ProductDetailsPage() {
             You may also like
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {related.slice(0, 4).map((product) => (
               <Link
                 key={product.id}
                 href={`/products/${product.id}`}
                 className="bg-white rounded-2xl p-2 shadow-sm hover:shadow-lg transition"
               >
-                <div className="relative bg-gray-100 rounded-xl h-64 overflow-hidden">
+                <div className="relative bg-gray-100 rounded-xl h-40 md:min-h-64 overflow-hidden">
                   <span className="absolute top-0 left-0 bg-blue-600 text-white text-xs px-3 py-1 rounded-tl-3xl rounded-br-3xl z-10">
                     New
                   </span>
@@ -216,7 +216,7 @@ export default function ProductDetailsPage() {
                     src={product.images?.[0]}
                     alt={product.title}
                     fill
-                    className="object-contain p-6 rounded-2xl"
+                    className="object-contain p-4 rounded-2xl"
                   />
                 </div>
 

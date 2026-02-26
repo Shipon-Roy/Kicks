@@ -14,6 +14,13 @@ interface Product {
 export default function NewDrops() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const [brokenImages, setBrokenImages] = useState<Record<number, boolean>>({});
+
+  const PLACEHOLDER_SVG =
+    "data:image/svg+xml;utf8," +
+    encodeURIComponent(
+      "<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23f3f4f6'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%239ca3af' font-family='Arial' font-size='20'>No Image</text></svg>",
+    );
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -57,7 +64,7 @@ export default function NewDrops() {
                 href={`/products/${product.id}`}
                 className="bg-white rounded-2xl p-2 shadow-sm hover:shadow-lg transition"
               >
-                <div className="relative bg-gray-100 rounded-xl h-64 overflow-hidden">
+                <div className="relative bg-gray-100 rounded-xl h-40 md:min-h-64 overflow-hidden">
                   <span className="absolute top-0 left-0 bg-blue-600 text-white text-xs px-3 py-1 rounded-tl-3xl rounded-br-3xl z-10">
                     New
                   </span>
@@ -66,7 +73,10 @@ export default function NewDrops() {
                     src={product.images?.[0]}
                     alt={product.title}
                     fill
-                    className="object-contain p-6 rounded-2xl"
+                    onError={() =>
+                      setBrokenImages((s) => ({ ...s, [product.id]: true }))
+                    }
+                    className="object-contain p-4 rounded-2xl"
                   />
                 </div>
 
