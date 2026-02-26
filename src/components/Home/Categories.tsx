@@ -42,7 +42,10 @@ export default function CategoriesPage() {
     <section className="bg-[#121212] py-16">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center mb-10">
-          <h2 className="text-white text-4xl font-extrabold tracking-wide">
+          <h2
+            data-aos="fade-up"
+            className="text-white text-4xl font-extrabold tracking-wide"
+          >
             CATEGORIES
           </h2>
 
@@ -78,7 +81,10 @@ export default function CategoriesPage() {
                   className="object-contain w-[80%] transition-transform duration-500 group-hover:scale-105"
                 />
 
-                <div className="absolute bottom-5 left-8 right-8 flex justify-between items-center z-10">
+                <div
+                  data-aos="fade-up"
+                  className="absolute bottom-5 left-8 right-8 flex justify-between items-center z-10"
+                >
                   <h3 className="text-3xl font-extrabold text-[#1c1c1c] leading-tight">
                     {cat.name}
                   </h3>

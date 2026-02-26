@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "Kicks",
   description:
     "kicks is a sneaker store built with Next.js 13, Tailwind CSS, and TypeScript. It features a clean and modern design, responsive layout, and a user-friendly interface for browsing and purchasing sneakers.",
-  icons: "/icons.png",
+  icons: "/vercel.png",
 };
 
 export default function RootLayout({

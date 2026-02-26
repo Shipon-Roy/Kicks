@@ -33,8 +33,16 @@ export default function Reviews() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-4xl font-extrabold text-[#232321]">REVIEWS</h2>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+          <h2
+            data-aos="fade-up"
+            className="text-4xl font-extrabold text-[#232321]"
+          >
+            REVIEWS
+          </h2>
+          <button
+            data-aos="fade-left"
+            className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
+          >
             SEE ALL
           </button>
         </div>
@@ -82,6 +90,7 @@ export default function Reviews() {
               {/* Product Image */}
               <div className="flex-1 overflow-hidden">
                 <Image
+                  data-aos="zoom-in"
                   src={review.productImage}
                   alt="Product"
                   width={500}

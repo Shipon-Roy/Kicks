@@ -35,11 +35,17 @@ export default function NewDrops() {
     <section className="bg-gray-200 py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="flex md:flex-row md:items-center md:justify-between mb-12 gap-6">
-          <h2 className="text-lg text-black md:text-6xl font-extrabold leading-tight">
+          <h2
+            data-aos="fade-up"
+            className="text-lg text-black md:text-6xl font-extrabold leading-tight"
+          >
             DON’T MISS OUT <br /> NEW DROPS
           </h2>
 
-          <button className="bg-[#4A69E2] hover:bg-blue-700 transition text-white px-3 py-2 md:px-6 md:py-3 rounded-lg font-medium">
+          <button
+            data-aos="fade-left"
+            className="bg-[#4A69E2] hover:bg-blue-700 transition text-white px-3 py-2 md:px-6 md:py-3 rounded-lg font-medium"
+          >
             SHOP NEW DROPS
           </button>
         </div>
@@ -63,6 +69,7 @@ export default function NewDrops() {
                   </span>
 
                   <Image
+                    data-aos="zoom-in"
                     src={product.images?.[0]}
                     alt={product.title}
                     fill

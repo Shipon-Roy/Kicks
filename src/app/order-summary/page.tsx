@@ -7,6 +7,9 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { FaHeart, FaTrash } from "react-icons/fa";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 interface Product {
   id: number;
   title: string;
@@ -34,6 +37,9 @@ export default function OrderSummaryPage() {
         console.error(e);
       }
     };
+
+    AOS.init({ duration: 1000 });
+
     fetchRelated();
   }, []);
 
@@ -80,14 +86,21 @@ export default function OrderSummaryPage() {
       {/* Banner */}
       <div className="bg-gray-200 py-6 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+          <h2
+            data-aos="fade-up"
+            className="text-2xl md:text-3xl font-bold text-gray-900"
+          >
             Saving to celebrate
           </h2>
-          <p className="text-gray-700 mt-2">
+          <p
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            className="text-gray-700 mt-2"
+          >
             Enjoy up to 60% off thousands of styles during the End of Year sale
             - while supplies last. No code needed.
           </p>
-          <div className="mt-3">
+          <div data-aos="fade-up" data-aos-duration="3000" className="mt-3">
             <Link
               href="/"
               className="text-blue-600 font-semibold hover:underline"
@@ -111,10 +124,17 @@ export default function OrderSummaryPage() {
           {/* Your Bag Section */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-lg p-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              <h1
+                data-aos="fade-up"
+                className="text-3xl font-bold text-gray-900 mb-2"
+              >
                 Your Bag
               </h1>
-              <p className="text-gray-600 mb-6">
+              <p
+                data-aos="fade-up"
+                data-aos-duration="2000"
+                className="text-gray-600 mb-6"
+              >
                 Items in your bag not reserved- check out now to make them
                 yours.
               </p>
@@ -127,6 +147,7 @@ export default function OrderSummaryPage() {
                   >
                     <div className="relative w-40 h-40 bg-gray-100 rounded-lg overflow-hidden shrink-0">
                       <Image
+                        data-aos="zoom-in"
                         src={item.image}
                         alt={item.title}
                         fill
@@ -309,6 +330,7 @@ export default function OrderSummaryPage() {
                   </span>
 
                   <Image
+                    data-aos="zoom-in"
                     src={product.images?.[0]}
                     alt={product.title}
                     fill

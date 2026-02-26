@@ -8,15 +8,23 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto  px-4">
         <div className="bg-[#4A69E2] rounded-3xl px-6 md:px-12 py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="text-white max-w-xl ">
-            <h2 className="text-2xl md:text-4xl font-bold">
+            <h2 data-aos="fade-up" className="text-2xl md:text-4xl font-bold">
               JOIN OUR KICKSPLUS <br /> CLUB & GET 15% OFF
             </h2>
 
-            <p className="mt-2 text-sm md:text-base text-[#E7E7E3]">
+            <p
+              data-aos="fade-up"
+              data-aos-duration="2000"
+              className="mt-2 text-sm md:text-base text-[#E7E7E3]"
+            >
               Sign up for free! Join the community.
             </p>
 
-            <div className="mt-4 flex flex-col sm:flex-row gap-3">
+            <div
+              data-aos="fade-up"
+              data-aos-duration="3000"
+              className="mt-4 flex flex-col sm:flex-row gap-3"
+            >
               <input
                 type="email"
                 placeholder="Email address"
@@ -28,7 +36,10 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="text-white text-4xl md:text-6xl font-extrabold tracking-wide">
+          <div
+            data-aos="fade-left"
+            className="text-white text-4xl md:text-6xl font-extrabold tracking-wide"
+          >
             KICKS<span className="text-[#FFA52F]">+</span>
           </div>
         </div>
@@ -36,10 +47,17 @@ export default function Footer() {
         <div className="relative min-h-120 bg-[#232321]  -mt-7.5 rounded-3xl px-6 md:px-12 pt-14 pb-20 overflow-hidden">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
             <div>
-              <h3 className="text-[#FFA52F] font-semibold text-lg mb-3">
+              <h3
+                data-aos="fade-up"
+                className="text-[#FFA52F] font-semibold text-lg mb-3"
+              >
                 About us
               </h3>
-              <p className="text-sm text-[#E7E7E3] leading-relaxed">
+              <p
+                data-aos="fade-up"
+                data-aos-duration="2000"
+                className="text-sm text-[#E7E7E3] leading-relaxed"
+              >
                 We are the biggest hyperstore in the universe. We got you all
                 cover with our exclusive collections and latest drops.
               </p>
@@ -85,7 +103,10 @@ export default function Footer() {
           </div>
 
           <div className="absolute bottom-0 md:bottom-10 left-0 w-full text-center pointer-events-none select-none translate-y-1/3 md:translate-y-1/2">
-            <h1 className="text-[80px] sm:text-[100px] md:text-[160px] lg:text-[220px] font-extrabold text-white tracking-widest whitespace-nowrap">
+            <h1
+              data-aos="fade-up"
+              className="text-[80px] sm:text-[100px] md:text-[160px] lg:text-[220px] font-extrabold text-white tracking-widest whitespace-nowrap"
+            >
               KICKS
             </h1>
           </div>

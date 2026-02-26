@@ -7,6 +7,9 @@ import { FaHeart } from "react-icons/fa";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 interface Product {
   id: number;
   title: string;
@@ -54,6 +57,8 @@ export default function ProductDetailsPage() {
         console.error("Fetch error:", error);
       }
     };
+
+    AOS.init({ duration: 1000 });
 
     fetchProduct();
   }, [params?.id]);
@@ -117,6 +122,7 @@ export default function ProductDetailsPage() {
                 className="bg-white rounded-2xl p-6 flex items-center justify-center"
               >
                 <Image
+                  data-aos="zoom-in"
                   src={img}
                   alt={product.title}
                   width={400}
@@ -213,6 +219,7 @@ export default function ProductDetailsPage() {
                   </span>
 
                   <Image
+                    data-aos="zoom-in"
                     src={product.images?.[0]}
                     alt={product.title}
                     fill

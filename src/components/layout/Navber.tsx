@@ -42,13 +42,13 @@ export default function Navber() {
 
             <ul className="hidden md:flex items-center gap-6">
               <li>
-                <Link href="/">New Drops🔥</Link>
+                <Link href="/new-drops">New Drops🔥</Link>
               </li>
               <li>
-                <Link href="/men">Men</Link>
+                <Link href="/#">Men</Link>
               </li>
               <li>
-                <Link href="/woment">Woment</Link>
+                <Link href="/#">Woment</Link>
               </li>
             </ul>
           </div>
@@ -64,14 +64,14 @@ export default function Navber() {
           <div className="flex justify-end items-center gap-3">
             <Link
               href="/#"
-              className="hidden md:inline-flex p-2 rounded hover:bg-gray-700"
+              className="hidden md:inline-flex p-2 rounded hover:bg-gray-700 hover:text-white"
             >
               <FiSearch className="w-5 h-5" />
             </Link>
 
             <Link
-              href="/profile"
-              className="inline-flex p-2 rounded hover:bg-gray-700"
+              href="/#"
+              className="inline-flex p-2 rounded hover:bg-gray-700 hover:text-white"
             >
               <CgProfile className="w-6 h-6" />
             </Link>
@@ -88,13 +88,13 @@ export default function Navber() {
         <div className={`${open ? "block" : "hidden"} md:hidden pb-4`}>
           <ul className="flex flex-col gap-3 bg-gray-300 p-4 rounded-2xl text-white ">
             <li>
-              <Link href="/">New Drops🔥</Link>
+              <Link href="/new-drops">New Drops🔥</Link>
             </li>
             <li>
-              <Link href="/men">Men</Link>
+              <Link href="/#">Men</Link>
             </li>
             <li>
-              <Link href="/woment">Woment</Link>
+              <Link href="/#">Woment</Link>
             </li>
           </ul>
         </div>
