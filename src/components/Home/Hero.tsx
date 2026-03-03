@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="bg-gray-200 py-12 px-4">
+    <section className="bg-gray-200 overflow-hidden py-12 px-4">
       <div className="max-w-7xl mx-auto">
         <h1
           data-aos="fade-up"
