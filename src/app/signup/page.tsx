@@ -75,7 +75,7 @@ export default function SignupPage() {
                 onChange={handleChange}
                 required
                 placeholder="John Doe"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
+                className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
               />
             </div>
 
@@ -94,7 +94,7 @@ export default function SignupPage() {
                 onChange={handleChange}
                 required
                 placeholder="you@example.com"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
+                className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
               />
             </div>
 
@@ -113,7 +113,7 @@ export default function SignupPage() {
                 onChange={handleChange}
                 required
                 placeholder="••••••••"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
+                className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
               />
             </div>
 
@@ -132,7 +132,7 @@ export default function SignupPage() {
                 onChange={handleChange}
                 required
                 placeholder="••••••••"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
+                className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
               />
             </div>
 

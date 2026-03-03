@@ -25,6 +25,7 @@ export default function ProductDetailsPage() {
   const [product, setProduct] = useState<Product | null>(null);
   const [related, setRelated] = useState<Product[]>([]);
   const [selectedSize, setSelectedSize] = useState<number | null>(38);
+  const [selectedImage, setSelectedImage] = useState<string>("");
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
 
@@ -46,6 +47,7 @@ export default function ProductDetailsPage() {
         const data: Product = await res.json();
 
         setProduct(data);
+        setSelectedImage(data.images?.[0] || "");
 
         const relatedRes = await fetch(
           "https://api.escuelajs.co/api/v1/products",
@@ -115,22 +117,41 @@ export default function ProductDetailsPage() {
     <div className="bg-[#E7E7E3] min-h-screen py-10 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div className="grid grid-cols-2 gap-6">
-            {product.images.slice(0, 4).map((img, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-6 flex items-center justify-center"
-              >
-                <Image
-                  data-aos="zoom-in"
-                  src={img}
-                  alt={product.title}
-                  width={400}
-                  height={300}
-                  className="object-contain"
-                />
-              </div>
-            ))}
+          <div>
+            {/* Main Image */}
+            <div className="bg-white rounded-2xl p-6 flex items-center justify-center mb-6">
+              <Image
+                data-aos="zoom-in"
+                src={selectedImage}
+                alt={product.title}
+                width={500}
+                height={400}
+                className="object-contain"
+              />
+            </div>
+
+            {/* Preview Images */}
+            <div className="grid grid-cols-4 gap-4">
+              {product.images.slice(0, 4).map((img, index) => (
+                <div
+                  key={index}
+                  onClick={() => setSelectedImage(img)}
+                  className={`cursor-pointer bg-white rounded-xl p-3 border transition ${
+                    selectedImage === img
+                      ? "border-black"
+                      : "border-transparent"
+                  }`}
+                >
+                  <Image
+                    src={img}
+                    alt={product.title}
+                    width={100}
+                    height={80}
+                    className="object-contain"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
 
           <div>
@@ -160,7 +181,7 @@ export default function ProductDetailsPage() {
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`py-2 rounded-lg text-sm font-medium transition ${
+                    className={`py-2 cursor-pointer rounded-lg text-sm font-medium transition ${
                       selectedSize === size
                         ? "bg-[#232321] text-white"
                         : "bg-white text-[#232321]"

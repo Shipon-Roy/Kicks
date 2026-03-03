@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Container from "./Container";
 import Link from "next/link";
 import { CgProfile } from "react-icons/cg";
@@ -10,6 +10,24 @@ export default function Navber() {
   const [open, setOpen] = useState(false);
   const [profileDropdown, setProfileDropdown] = useState(false);
   const { cart } = useCart();
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setProfileDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <div className="  bg-[#E7E7E3] py-6">
@@ -67,32 +85,39 @@ export default function Navber() {
               <FiSearch className="w-5 h-5" />
             </Link>
 
-            <div className="relative">
+            <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setProfileDropdown(!profileDropdown)}
                 className="inline-flex p-2 rounded hover:bg-gray-700 hover:text-white"
               >
-                <CgProfile className="w-6 h-6" />
+                {" "}
+                <CgProfile className="w-6 h-6" />{" "}
               </button>
+              <div
+                className={`absolute right-0 mt-3 w-36 bg-white text-black rounded-xl shadow-xl overflow-hidden z-50
+  transition-all duration-200 origin-top-right
+  ${
+    profileDropdown
+      ? "opacity-100 scale-100 translate-y-0"
+      : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
+  }`}
+              >
+                <Link
+                  href="/login"
+                  className="block px-4 py-2 hover:bg-gray-100 transition"
+                  onClick={() => setProfileDropdown(false)}
+                >
+                  Login
+                </Link>
 
-              {profileDropdown && (
-                <div className="absolute right-0 mt-2 w-32 bg-white text-black rounded-lg shadow-lg overflow-hidden z-50">
-                  <Link
-                    href="/login"
-                    className="block px-4 py-2 hover:bg-gray-200 transition"
-                    onClick={() => setProfileDropdown(false)}
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    href="/signup"
-                    className="block px-4 py-2 hover:bg-gray-200 transition border-t"
-                    onClick={() => setProfileDropdown(false)}
-                  >
-                    Sign Up
-                  </Link>
-                </div>
-              )}
+                <Link
+                  href="/signup"
+                  className="block px-4 py-2 hover:bg-gray-100 transition border-t"
+                  onClick={() => setProfileDropdown(false)}
+                >
+                  Sign Up
+                </Link>
+              </div>
             </div>
 
             <Link

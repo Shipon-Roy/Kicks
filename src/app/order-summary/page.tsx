@@ -5,7 +5,7 @@ import { useCart } from "@/context/CartContext";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { FaHeart, FaTrash } from "react-icons/fa";
+import { FaHeart, FaTrash, FaPlus, FaMinus } from "react-icons/fa";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -194,25 +194,37 @@ export default function OrderSummaryPage() {
 
                         <div>
                           <label className="text-sm font-semibold text-[#232321] block mb-2">
-                            Quantity {item.quantity}
+                            Quantity
                           </label>
-                          <select
-                            value={item.quantity}
-                            onChange={(e) =>
-                              updateQuantity(
-                                item.id,
-                                item.size,
-                                parseInt(e.target.value),
-                              )
-                            }
-                            className="text-[#232321] border border-[#232321] rounded-lg px-3 py-2 text-sm"
-                          >
-                            {[1, 2, 3, 4, 5].map((qty) => (
-                              <option key={qty} value={qty}>
-                                {qty}
-                              </option>
-                            ))}
-                          </select>
+                          <div className="flex items-center gap-2 border border-[#232321] rounded-lg px-2 py-1 w-fit">
+                            <button
+                              onClick={() =>
+                                updateQuantity(
+                                  item.id,
+                                  item.size,
+                                  Math.max(1, item.quantity - 1),
+                                )
+                              }
+                              className="text-[#232321] hover:text-blue-600 transition p-1"
+                            >
+                              <FaMinus size={14} />
+                            </button>
+                            <span className="text-[#232321] font-semibold w-8 text-center">
+                              {item.quantity}
+                            </span>
+                            <button
+                              onClick={() =>
+                                updateQuantity(
+                                  item.id,
+                                  item.size,
+                                  item.quantity + 1,
+                                )
+                              }
+                              className="text-[#232321] hover:text-blue-600 transition p-1"
+                            >
+                              <FaPlus size={14} />
+                            </button>
+                          </div>
                         </div>
 
                         <div className="ml-auto text-right">
@@ -287,15 +299,15 @@ export default function OrderSummaryPage() {
                 <p className="text-sm font-semibold text-gray-900 mb-3">
                   User a promo code
                 </p>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-col sm:flex-row">
                   <input
                     type="text"
                     value={promoCode}
                     onChange={(e) => setPromoCode(e.target.value.toUpperCase())}
                     placeholder="Enter code"
-                    className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm"
+                    className="flex-1 text-black border border-gray-300 rounded-lg px-3 py-2 text-sm"
                   />
-                  <button className="bg-gray-300 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-gray-400 transition">
+                  <button className="bg-gray-300 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-gray-400 transition whitespace-nowrap">
                     Apply
                   </button>
                 </div>
