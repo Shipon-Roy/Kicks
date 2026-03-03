@@ -183,7 +183,7 @@ export default function OrderSummaryPage() {
                                 item.quantity,
                               )
                             }
-                            className="text-[#232321] border border-[#232321] rounded-lg px-3 py-2 text-sm"
+                            className="text-[#232321] border border-[#232321] rounded-lg px-3 py-2 text-sm cursor-pointer"
                           >
                             {[38, 39, 40, 41, 42, 43, 44, 45, 46, 47].map(
                               (size) => (
@@ -208,7 +208,7 @@ export default function OrderSummaryPage() {
                                   Math.max(1, item.quantity - 1),
                                 )
                               }
-                              className="text-[#232321] hover:text-blue-600 transition p-1"
+                              className="text-[#232321] hover:text-blue-600 transition p-1 cursor-pointer"
                             >
                               <FaMinus size={14} />
                             </button>
@@ -223,7 +223,7 @@ export default function OrderSummaryPage() {
                                   item.quantity + 1,
                                 )
                               }
-                              className="text-[#232321] hover:text-blue-600 transition p-1"
+                              className="text-[#232321] hover:text-blue-600 transition p-1 cursor-pointer"
                             >
                               <FaPlus size={14} />
                             </button>
@@ -232,12 +232,12 @@ export default function OrderSummaryPage() {
 
                         <div className="ml-auto text-right ">
                           <div className="flex gap-4">
-                            <button className="text-gray-600 hover:text-red-600 transition">
+                            <button className="text-gray-600 hover:text-red-600 transition cursor-pointer">
                               <FaHeart size={20} />
                             </button>
                             <button
                               onClick={() => removeFromCart(item.id, item.size)}
-                              className="text-gray-600 hover:text-red-600 transition"
+                              className="text-gray-600 hover:text-red-600 transition cursor-pointer"
                             >
                               <FaTrash size={20} />
                             </button>
@@ -307,7 +307,7 @@ export default function OrderSummaryPage() {
                     placeholder="Enter code"
                     className="flex-1 text-black border border-gray-300 rounded-lg px-3 py-2 text-sm"
                   />
-                  <button className="bg-gray-300 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-gray-400 transition whitespace-nowrap">
+                  <button className="bg-gray-300 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-gray-400 transition whitespace-nowrap cursor-pointer">
                     Apply
                   </button>
                 </div>
@@ -354,7 +354,7 @@ export default function OrderSummaryPage() {
                   {product.title}
                 </h3>
 
-                <button className="mt-4 w-full bg-[#232321] text-white py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition">
+                <button className="mt-4 w-full bg-[#232321] text-white py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition cursor-pointer">
                   VIEW PRODUCT –{" "}
                   <span className="text-[#FFA52F]">${product.price}</span>
                 </button>

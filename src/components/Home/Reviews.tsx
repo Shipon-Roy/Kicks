@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Container from "../layout/Container";
 
 export default function Reviews() {
   const reviews = [
@@ -30,14 +29,13 @@ export default function Reviews() {
   ];
 
   return (
-    <section className="bg-[#E7E7E3] py-16 ">
-      <Container>
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
+    <section className="bg-[#E7E7E3] overflow-hidden py-16 px-4 md:px-8 ">
+      <div className="max-w-7xl mx-auto">
+        <div>
           <div className="flex justify-between items-center mb-8">
             <h2
               data-aos="fade-up"
-              className="text-4xl font-extrabold text-[#232321]"
+              className="text-2xl md:text-4xl font-extrabold text-[#232321]"
             >
               REVIEWS
             </h2>
@@ -49,14 +47,12 @@ export default function Reviews() {
             </button>
           </div>
 
-          {/* Review Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {reviews.map((review) => (
               <div
                 key={review.id}
                 className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col"
               >
-                {/* Text & User */}
                 <div className="p-6 flex justify-between items-start">
                   <div>
                     <h3 className="font-bold text-[#232321] text-lg mb-1">
@@ -91,7 +87,6 @@ export default function Reviews() {
                   />
                 </div>
 
-                {/* Product Image */}
                 <div className="flex-1 overflow-hidden">
                   <Image
                     data-aos="zoom-in"
@@ -106,7 +101,7 @@ export default function Reviews() {
             ))}
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

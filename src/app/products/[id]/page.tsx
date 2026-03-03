@@ -197,18 +197,18 @@ export default function ProductDetailsPage() {
               <div className="flex justify-between items-center gap-3">
                 <button
                   onClick={handleAddToCart}
-                  className="w-full bg-[#232321] text-white py-3 rounded-xl font-semibold hover:bg-neutral-800 transition"
+                  className="w-full bg-[#232321] text-white py-3 rounded-xl font-semibold hover:bg-neutral-800 transition cursor-pointer"
                 >
                   ADD TO CART
                 </button>
-                <button className="w-12 h-12 bg-[#232321] rounded-xl flex items-center justify-center shadow hover:bg-neutral-800 transition">
+                <button className="w-12 h-12 bg-[#232321] rounded-xl flex items-center justify-center shadow hover:bg-neutral-800 transition cursor-pointer">
                   <FaHeart className="text-white" />
                 </button>
               </div>
 
               <button
                 onClick={handleBuyNow}
-                className="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition"
+                className="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition cursor-pointer"
               >
                 BUY IT NOW
               </button>

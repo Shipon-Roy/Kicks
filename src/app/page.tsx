@@ -12,11 +12,11 @@ export default function Home() {
     AOS.init({ duration: 1000 });
   }, []);
   return (
-    <div>
+    <>
       <Hero />
       <NewDrops />
       <Categories />
       <Reviews />
-    </div>
+    </>
   );
 }

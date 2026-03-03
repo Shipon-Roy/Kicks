@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import Container from "@/components/layout/Container";
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
@@ -46,127 +45,125 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#E7E7E3] py-12">
-      <Container>
-        <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-8">
-          <h1 className="text-3xl font-bold text-[#232321] mb-8 text-center">
-            KICKS Sign Up
-          </h1>
+    <div className="min-h-screen bg-[#E7E7E3] py-12 px-4 md:px-8">
+      <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-8">
+        <h1 className="text-3xl font-bold text-[#232321] mb-8 text-center">
+          KICKS Sign Up
+        </h1>
 
-          {error && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-              {error}
-            </div>
-          )}
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            {error}
+          </div>
+        )}
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-[#232321] mb-2"
-              >
-                Full Name
-              </label>
-              <input
-                id="name"
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                placeholder="John Doe"
-                className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-[#232321] mb-2"
-              >
-                Email Address
-              </label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                placeholder="you@example.com"
-                className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-[#232321] mb-2"
-              >
-                Password
-              </label>
-              <input
-                id="password"
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-                placeholder="••••••••"
-                className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="confirmPassword"
-                className="block text-sm font-medium text-[#232321] mb-2"
-              >
-                Confirm Password
-              </label>
-              <input
-                id="confirmPassword"
-                type="password"
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                required
-                placeholder="••••••••"
-                className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-[#4A69E2] text-white font-bold py-2 px-4 rounded-lg hover:bg-[#4066fc] transition disabled:opacity-50 disabled:cursor-not-allowed"
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-[#232321] mb-2"
             >
-              {loading ? "Creating Account..." : "Sign Up"}
-            </button>
-          </form>
-
-          <div className="mt-6 text-center">
-            <p className="text-gray-600 text-sm">
-              Already have an account?{" "}
-              <Link
-                href="/login"
-                className="text-[#4A69E2] font-semibold hover:underline"
-              >
-                Log in
-              </Link>
-            </p>
+              Full Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              placeholder="John Doe"
+              className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
+            />
           </div>
 
-          <div className="mt-4 text-center">
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-[#232321] mb-2"
+            >
+              Email Address
+            </label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              placeholder="you@example.com"
+              className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-[#232321] mb-2"
+            >
+              Password
+            </label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              placeholder="••••••••"
+              className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="confirmPassword"
+              className="block text-sm font-medium text-[#232321] mb-2"
+            >
+              Confirm Password
+            </label>
+            <input
+              id="confirmPassword"
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+              placeholder="••••••••"
+              className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA52F] focus:border-transparent"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-[#4A69E2] text-white font-bold py-2 px-4 rounded-lg hover:bg-[#4066fc] transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+          >
+            {loading ? "Creating Account..." : "Sign Up"}
+          </button>
+        </form>
+
+        <div className="mt-6 text-center">
+          <p className="text-gray-600 text-sm">
+            Already have an account?{" "}
             <Link
-              href="/"
-              className="text-[#232321] font-medium border-2 border-[#4A69E2] hover:text-[#4A69E2] transition py-2 px-4 rounded-lg"
+              href="/login"
+              className="text-[#4A69E2] font-semibold hover:underline"
             >
-              Back to Home
+              Log in
             </Link>
-          </div>
+          </p>
         </div>
-      </Container>
+
+        <div className="mt-4 text-center">
+          <Link
+            href="/"
+            className="text-[#232321] font-medium border-2 border-[#4A69E2] hover:text-[#4A69E2] transition py-2 px-4 rounded-lg"
+          >
+            Back to Home
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

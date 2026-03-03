@@ -65,7 +65,7 @@ export default function NewDrops() {
 
         {!loading && (
           <>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
               {selectedProducts.map((product) => (
                 <Link
                   key={product.id}
@@ -90,7 +90,7 @@ export default function NewDrops() {
                     {product.title}
                   </h3>
 
-                  <button className="mt-4 w-full bg-[#232321] text-white py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition">
+                  <button className="mt-4 w-full bg-[#232321] text-white py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition cursor-pointer">
                     VIEW PRODUCT –
                     <span className="text-[#FFA52F]"> ${product.price}</span>
                   </button>

@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Container from "../layout/Container";
 
 interface Category {
   id: number;
@@ -40,13 +39,13 @@ export default function CategoriesPage() {
   const featured = categories.slice(0, 2);
 
   return (
-    <section className="bg-[#121212] py-16">
-      <Container>
-        <div className="max-w-7xl mx-auto px-4">
+    <section className="bg-[#121212] overflow-hidden py-16 px-4 md:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div>
           <div className="flex justify-between items-center mb-10">
             <h2
               data-aos="fade-up"
-              className="text-white text-4xl font-extrabold tracking-wide"
+              className="text-white text-2xl md:text-4xl font-extrabold tracking-wide"
             >
               CATEGORIES
             </h2>
@@ -99,7 +98,7 @@ export default function CategoriesPage() {
             ))}
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
