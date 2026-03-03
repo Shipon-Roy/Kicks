@@ -33,7 +33,7 @@ export default function Navber() {
     <div className="  bg-[#E7E7E3] py-6">
       <Container>
         <div
-          className="grid grid-cols-3 items-center bg-[#FAFAFA] text-[#232321] py-4 px-10 rounded-lg 
+          className="grid grid-cols-3 items-center bg-[#FAFAFA] text-[#232321] py-4 px-6 md:px-10 rounded-lg 
         "
         >
           <div className="flex items-center gap-4">
@@ -73,11 +73,11 @@ export default function Navber() {
 
           <div className="flex justify-center">
             <Link href="/">
-              <h1 className="text-2xl text-[#232321] font-bold ">KICKS</h1>
+              <h1 className="text-3xl text-[#232321] font-extrabold ">KICKS</h1>
             </Link>
           </div>
 
-          <div className="flex justify-end items-center gap-3">
+          <div className="flex justify-end items-center gap-2">
             <Link
               href="/#"
               className="hidden md:inline-flex p-2 rounded hover:bg-gray-700 hover:text-white"

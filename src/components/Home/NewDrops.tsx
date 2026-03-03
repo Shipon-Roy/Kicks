@@ -42,12 +42,13 @@ export default function NewDrops() {
             DON’T MISS OUT <br /> NEW DROPS
           </h2>
 
-          <button
+          <Link
+            href="/new-drops"
             data-aos="fade-left"
             className="bg-[#4A69E2] hover:bg-blue-700 transition text-white px-3 py-2 md:px-6 md:py-3 rounded-lg font-medium"
           >
             SHOP NEW DROPS
-          </button>
+          </Link>
         </div>
 
         {/* Loading */}

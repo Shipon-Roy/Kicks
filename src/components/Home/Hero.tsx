@@ -56,7 +56,7 @@ export default function Hero() {
             <Link
               data-aos="fade-up"
               data-aos-duration="3000"
-              href="/shop"
+              href="/new-drops"
               aria-label="Shop Nike Air Max"
               className="inline-block bg-[#4A69E2] hover:bg-blue-700 transition px-5 py-2 md:px-6 md:py-3 rounded-lg text-sm font-semibold"
             >
