@@ -166,6 +166,9 @@ export default function OrderSummaryPage() {
                         Enamel Blue / University White
                       </p>
 
+                      <p className="text-2xl font-bold text-blue-600 mb-4">
+                        ${(item.price * item.quantity).toFixed(2)}
+                      </p>
                       <div className="flex items-center gap-8">
                         <div>
                           <label className="text-sm font-semibold text-[#232321] block mb-2">
@@ -228,9 +231,6 @@ export default function OrderSummaryPage() {
                         </div>
 
                         <div className="ml-auto text-right">
-                          <p className="text-2xl font-bold text-blue-600 mb-4">
-                            ${(item.price * item.quantity).toFixed(2)}
-                          </p>
                           <div className="flex gap-4">
                             <button className="text-gray-600 hover:text-red-600 transition">
                               <FaHeart size={20} />
