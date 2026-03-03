@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CgProfile } from "react-icons/cg";
 import { FiSearch } from "react-icons/fi";
 import { useCart } from "@/context/CartContext";
+import { FaCartShopping } from "react-icons/fa6";
 
 export default function Navber() {
   const [open, setOpen] = useState(false);
@@ -120,9 +121,15 @@ export default function Navber() {
 
           <Link
             href="/order-summary"
-            className="inline-flex md:inline-flex justify-center items-center p-4 w-6 h-6 rounded-full bg-[#FFA52F] text-black text-xl font-bold hover:bg-orange-500 transition"
+            className="group relative p-2.5 sm:p-3 rounded-2xl backdrop-blur-sm bg-white/10 hover:bg-white/20 border border-white/20 shadow-xl hover:shadow-blue-500/20 transition-all duration-400 hover:scale-110"
           >
-            {cart.length}
+            <FaCartShopping
+              size={20}
+              className="group-hover:text-blue-400 transition-colors"
+            />
+            <span className="absolute -top-1 -right-1 bg-linear-to-r from-red-500 to-pink-500 text-white text-xs w-6 h-6 rounded-2xl flex items-center justify-center font-bold shadow-2xl animate-bounce border-2 border-white/30">
+              {cart.length}
+            </span>
           </Link>
         </div>
       </div>
